@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 4</title>
+</head>
+<body>
+<h1>Quản lý khách hàng</h1>
+<form id="formkh">
+    <input type="number" id="makh"> <br>
+    <input type="text" id="namekh"> <br>
+    <input type="number" id="phonekh"> <br>
+    <input type="text" id="addresskh"> <br>
+    <input type="email" id="emailkh"> <br>
+    <button type="submit">Add</button>
+</form>
+<table id="tablekh">
+    <tr>
+        <td>Mã khách hàng</td>
+        <td>Tên khách hàng</td>
+        <td>Số điện thoại</td>
+        <td>Địa chỉ</td>
+        <td>Email</td>
+    </tr>
+</table>
+<script>
+class Khachhang{
+    constructor(makh, namekh, phonekh, addresskh, emailkh) {
+        this.makh = makh;
+        this.namekh = namekh;
+        this.phonekh = phonekh;
+        this.addresskh = addresskh;
+        this.emailkh = emailkh;
+    }
+}
+let ListKH = [];
+document.getElementById('formkh').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    let makh = document.getElementById('makh').value;
+    let namekh = document.getElementById('namekh').value;
+    let phonekh = document.getElementById('phonekh').value;
+    let addresskh = document.getElementById('addresskh').value;
+    let emailkh = document.getElementById('emailkh').value;
+    let khachhang = new Khachhang(makh, namekh, phonekh, addresskh, emailkh);
+    ListKH.push(khachhang);
+    hienthiList();
+    this.reset();
+});
+function hienthiList() {
+    let table = document.getElementById('tablekh');
+    table.innerHTML = `
+        <tr>
+          <td>Mã KH</td>
+          <td>Tên KH</td>
+          <td>Số điện thoại</td>
+          <td>Địa chỉ</td>
+          <td>Email</td>
+        </tr>
+      `;
+    for (let khachhang of ListKH) {
+        table.innerHTML += `
+          <tr>
+            <td>${khachhang.makh}</td>
+            <td>${khachhang.namekh}</td>
+            <td>${khachhang.phonekh}</td>
+            <td>${khachhang.addresskh}</td>
+            <td>${khachhang.emailkh}</td>
+          </tr>
+        `;
+    }
+}
+</script>
+</body>
+</html>

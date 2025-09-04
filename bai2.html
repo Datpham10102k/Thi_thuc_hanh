@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 2</title>
+</head>
+<body>
+<script>
+    function lamTron(point) {
+
+    if (point <0 || point >100) {
+        alert("Điểm nhập vào không hợp lệ!")
+    }else {
+        if (point < 48) {
+            alert(`Học sinh có điểm ${point} là trượt`);
+        } else if (point < 50) {
+            alert(`Học sinh có điểm ${point} là trượt`);
+        }
+        let boiSo5 = Math.ceil(point / 5) * 5;
+        if (boiSo5 - point < 3) {
+            point = boiSo5;
+    }
+    return point;
+    }
+    }
+    let point = parseInt(prompt("Nhập số điển của học sinh:"))
+    let ketQua = lamTron(point);
+    document.write("Điểm sau khi làm tròn: " + ketQua);
+</script>
+</body>
+</html>

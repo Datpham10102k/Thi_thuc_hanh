@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bài 3</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt("Nhập số phần tử (nhỏ hơn hoặc bằng 50):"));
+    if (n > 50 || n <= 0 ){
+        alert("Chỉ nhập số phần tử nh hơn hoặc 50");
+    }else {
+        let arr = [];
+        for (let i = 0; i < n; i++) {
+            arr.push(parseInt(prompt("Nhập phần tử thứ " + (i+1) + ":")));
+        }
+    let k = parseInt(prompt("Nhập số nguyên dương k:"));
+    if (k <= 0){
+        alert(`${k} không phải là số nguyên dương`);
+    }else {
+        let count = 0;
+        let Capso =[];
+        for (let i = 0; i < n; i++) {
+            for (let j = i + 1; j < n; j++) {
+                if ((arr[i] + arr[j]) % k === 0) {
+                    count++;
+                    Capso.push(`(${arr[i]}, ${arr[j]})`);
+                }
+            }
+        }
+
+        document.write("Mảng: " + arr.join(", ") + "<br>");
+        document.write("k = " + k + "<br>");
+        document.write("Các cặp thỏa mãn: " + Capso.join(", ") + "<br>");
+        document.write("Số lượng cặp = " + count);
+    }
+    }
+</script>
+</body>
+</html>
